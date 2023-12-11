@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!--Inicio Header -->
+    <header>
+
+        <picture class="navbar__logo">
+            <a href="../index.html">
+                <img class="img-logo" src="../multimedia/branding/logo_light_horizontal.svg"
+                    alt="Isologotipo de la Marca funkoshop">
+            </a>
+        </picture>
+        <button id="abrir" class="menu-abrir"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+        <nav class="nav" id="nav">
+            <button id="cerrar" class="menu-cerrar"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a class="navbar__link with-icon" href="../pages_tienda/shop.html">Ver Tienda</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="contacto.html">CONTACTO</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">LOGIN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header> <!--Fin Header-->
+    <main class="container">
+        <section class="form__edit">
+            <form action="" method="post">
+                <h1 class="edit__title oneline">EDITAR ITEM</h1>
+
+                <div class="select__categoria select__cat-edit">
+                    <label class="label__select label__edit" for="categoria">Categoria:</label>
+                    <select class="select__item select__edit" name="categoria" id="categoria">
+                        <option class="select__option" value="">Figuras</option>
+                        <option class="select__option" value="">Star Wars</option>
+                        <option class="select__option" value="">Pokemon</option>
+                        <option class="select__option" value="">Harry Potter</option>
+                    </select>
+                </div>
+
+                <div class="select__licencia select__lic-edit">
+                    <label class="label__select label__edit" for="licencia">Licencia:</label>
+                    <select class="select__item select__edit" name="licencia" id="licencia">
+                        <option class="select__option" value="">Naruto Shipudden</option>
+                        <option class="select__option" value="">Star Wars</option>
+                        <option class="select__option" value="">Pokemon</option>
+                        <option class="select__option" value="">Harry Potter</option>
+                    </select>
+                </div>
+                <div class="nom__producto nom__producto-edit oneline">
+                    <label class="label__input" for="nombre del producto">Nombre del Producto:</label>
+                    <input class="input__item" type="text" placeholder="Kakashi Hatake shippuden Saga">
+                </div>
+                <div class="descripcion oneline">
+                    <textarea class="textarea__descripcion" name="" id="" cols="30" rows="10"
+                        placeholder="Figura Funko coleccionable de Kakashi Hatake de la saga Naruto Shipudden invocando chidori."></textarea>
+                </div>
+
+                <div class="sku__item sku__item-edit">
+                    <label class="label__input" for="sku">SKU:</label>
+                    <input class="input__item input__sku" type="text" placeholder="NARO01012">
+                </div>
+
+                <div class="precio__item precio__item-edit">
+                    <label class="label__input" for="precio">Precio:</label>
+                    <input class="input__item input__precio" type="text" placeholder="$1.799,00">
+                </div>
+
+                <div class="stock__item stock__item-edit">
+                    <label class="label__input" for="stock">Stock:</label>
+                    <input class="input__item input__stock" type="text" placeholder="10">
+                </div>
+
+                <div class="descuento__item desc__item-edit">
+                    <label class="label__input" for="descuento">Descuento:</label>
+                    <input class="input__item" type="text" placeholder="10%">
+                </div>
+
+                <div class="cuota__item cuota__item-edit">
+                    <label class="label__input" for="cuotas">Cuotas:</label>
+                    <select class="select__item__cuota" name="cuotas" id="cuotas">
+
+                        <option class="select__option" value="6 cuotas sin intereses">6 cuotas sin intereses</option>
+                        <option class="select__option" value="12 cuotas sin intereses">12 cuotas sin intereses</option>
+                    </select>
+                </div>
+
+                <div class="img__item oneline">
+                    <label class="label__input" for="imagenes">Imágenes:</label>
+                    <input class="input__item__file" type="file">
+                </div>
+                <div class="imagenes__edit">
+                    <figure class="figure__edit">
+                        <img src="../multimedia/pokemon/charmander-1.webp" alt="">
+                        <figcaption>Frente</figcaption>
+                    </figure>
+                    <figure class="figure__edit">
+                        <img class="image-edit" src="../multimedia/pokemon/charmander-box.webp" alt="">
+                        <figcaption>Dorso</figcaption>
+                    </figure>
+                </div>
+
+                <div class="btn__edit ">
+                    <button class="btn" type="submit">Modificar Producto</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="navbar container">
+            <ul>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="../pages_tienda/shop.html">Shop</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="register.html">Registrarse</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">Ingresar</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+            <picture class="footer__logo">
+                <img src="../multimedia/branding/isotype.svg" alt="Logo del sitio" />
+            </picture>
+        </div>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy ;</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

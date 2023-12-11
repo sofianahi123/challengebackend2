@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ingresar a mi cuenta</title>
+        <!-- se agrega enlase a css -->
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    
+    <body>
+        <!--Inicio Header -->
+   <header>
+
+    <picture class="navbar__logo">
+        <a href="../index.html">
+            <img class="img-logo" src="../multimedia/branding/logo_light_horizontal.svg"
+                alt="Isologotipo de la Marca funkoshop">
+        </a>
+    </picture>
+    <button id="abrir" class="menu-abrir"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+    <nav class="nav" id="nav">
+        <button id="cerrar" class="menu-cerrar"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a class="navbar__link with-icon" href="../pages_tienda/shop.html">Ver Tienda</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" href="contacto.html">CONTACTO</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" href="login.html">LOGIN</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+<!--Fin Header-->  
+<!-- inicio login -->
+        <main class="container">
+            <section class="form__login">
+                
+                <form action="" method="post">
+                    <h1 class="login__title">INGRESAR A MI CUENTA</h1>
+    
+                        <label class="label__input-login" for="email">Email:</label>
+                        <input class="input__item input__login" type="email" name="email" id="" placeholder="cuenta@correo.com" required>
+    
+                        <label class="label__input-login" for="password">Contraseña:</label>
+                        <input class="input__item input__login " type="password" name="password" id="" placeholder="***********" required>
+    
+                        <div class="login__btn">
+                            <button class="btn">Ingresar</button>
+                            <div class="recordar__btn">
+                                <input class="input__recordar" type="checkbox" name="recordar" id="recordar">
+                                <label class="label__recordar" for="recordar">Recordarme</label>
+                            </div>
+                        </div>
+                        <div class="recuperar">
+                            <a class="recuperar__password" href="#">Olvide mi Contraseña</a>
+                        </div>
+                </form>
+            </section>
+        </main>
+        <!-- fin login -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="navbar container">
+                <ul>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="../pages_tienda/shop.html">Shop</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="register.html">Registrarse</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="#">Ingresar</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a class="navbar__link" href="#">Contacto</a>
+                    </li>
+                </ul>
+                <picture>
+                    <img src="../multimedia/branding/isotype.svg" alt="Logo del sitio" />
+                </picture>
+            </div>
+            <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy ;</p>
+        </footer>
+        <script src="../js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    </body>
+</html>

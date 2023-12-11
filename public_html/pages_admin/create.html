@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!--Inicio Header -->
+    <header>
+
+        <picture class="navbar__logo">
+            <a href="../index.html">
+                <img class="img-logo" src="../multimedia/branding/logo_light_horizontal.svg"
+                    alt="Isologotipo de la Marca funkoshop">
+            </a>
+        </picture>
+        <button id="abrir" class="menu-abrir"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+        <nav class="nav" id="nav">
+            <button id="cerrar" class="menu-cerrar"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a class="navbar__link with-icon" href="../pages_tienda/shop.html">Ver Tienda</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="contacto.html">CONTACTO</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">LOGIN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header> <!--Fin Header-->
+    <main class="container">
+        <section class="form__create">
+            
+            <form class="" action="" method="post">
+                <h1 class="admin__title oneline">CREAR NUEVO ITEM</h1>
+
+                <div class="select__categoria">
+                    <label class="label__select" for="categoria">Categoría:</label>
+                    <select class="select__item" name="categoria" id="categoria">
+                        <option id="option" class="select__option" value="">Seleccionar</option>
+                        <option id="option" class="select__option" value="">Star Wars</option>
+                        <option id="option" class="select__option" value="">Pokemon</option>
+                        <option id="option" class="select__option" value="">Harry Potter</option>
+                    </select>
+                </div>
+                <div class="select__licencia">
+                    <label class="label__select" for="licencia">Licencia:</label>
+                    <select class="select__item" name="licencia" id="licencia">
+                        <option id="option" class="select__option" value="">Seleccionar</option>
+                        <option id="option" class="select__option" value="">Star Wars</option>
+                        <option id="option" class="select__option" value="">Pokemon</option>
+                        <option id="option" class="select__option" value="">Harry Potter</option>
+                    </select>
+                </div>
+                <div class="nom__producto oneline">
+                    <label class="label__input" for="nombre del producto">Nombre del Producto:</label>
+                    <input class="input__item " type="text" placeholder="Kakashi Hatake Shippuden Saga">
+                </div>
+                <div class="descripcion oneline">
+                    <textarea class="textarea__descripcion" name="" id="" cols="30" rows="10"
+                        placeholder="Descripción del producto"></textarea>
+                </div>
+
+                <div class="sku__item">
+                    <label class="label__input" for="sku">SKU:</label>
+                    <input class="input__item input__sku" type="text" placeholder="SSK111AB001">
+                </div>
+                <div class="precio__item">
+                    <label class="label__input " for="precio">Precio:</label>
+                    <input class="input__item input__precio" type="text" placeholder="$0.000,00">
+                </div>
+                <div class="stock__item">
+                    <label class="label__input input__stock" for="stock">Stock:</label>
+                    <input class="input__item" type="text" placeholder="0">
+                </div>
+                <div class="descuento__item">
+                    <label class="label__input" for="descuento">Descuento:</label>
+                    <input class="input__item" type="text" placeholder="0%">
+                </div>
+                <div class="cuota__item">
+                    <label class="label__input" for="cuotas">Cuotas:</label>
+                    <select class="select__item__cuota" name="cuotas" id="cuotas">
+                        <option class="select__option" value="3 cuotas sin intereses">3 cuotas sin intereses</option>
+                        <option class="select__option" value="6 cuotas sin intereses">6 cuotas sin intereses</option>
+                        <option class="select__option" value="12 cuotas sin intereses">12 cuotas sin intereses</option>
+                    </select>
+                </div>
+                <div class="img__item oneline">
+                    <label class="label__input" for="imagenes">Imágenes:</label>
+                    <input class="input__item__file" type="file">  
+                </div> 
+                <div class="btn__create oneline">
+                    <button class="btn" type="submit">Agregar Producto</button>
+                    <button class="btn btn-clear" type="submit">Limpiar</button>
+                </div>               
+            </form>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="navbar container">
+            <ul>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="../pages_tienda/shop.html">Ver Tienda</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="register.html">Registrarse</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="login.html">Ingresar</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__link" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+            <picture class="footer__logo">
+                <img src="../multimedia/branding/isotype.svg" alt="Logo del sitio" />
+            </picture>
+        </div>
+        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy ;</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
