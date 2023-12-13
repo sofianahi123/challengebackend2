@@ -9,7 +9,7 @@ const shopRoutes=require ('./src/routes/shopRoutes');
 const adminRoutes=require ('./src/routes/adminRoutes');
 const authRoutes=require ('./src/routes/authRoutes' );
 
-app.use (express.static('public_html'));
+app.use (express.static(path.join (__dirname ,'public_html')));
 
 app.set ('view engine','ejs'); 
 app.set('views', './src/views');
