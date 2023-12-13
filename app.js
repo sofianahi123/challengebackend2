@@ -1,13 +1,24 @@
-const express= require ('express');
-const app= express ();
+const express= require('express');
+const app= express();
+const path = require("path");
+const expressLayouts = require("express-ejs-layouts");
+const methodOverride = require("method-override");
+
 const mainRoutes= require ('./src/routes/mainRoutes');
 const shopRoutes=require ('./src/routes/shopRoutes');
 const adminRoutes=require ('./src/routes/adminRoutes');
 const authRoutes=require ('./src/routes/authRoutes' );
 
-
-
 app.use (express.static('public_html'));
+
+app.set ('view engine','ejs'); 
+app.set('views', './src/views');
+app.set("views", path.join(__dirname, "/src/views"));
+
+app.use(require('./src/routes/tareasRouter'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/public')
+
 
 app.use('/',mainRoutes ); 
 app.use('/',shopRoutes );

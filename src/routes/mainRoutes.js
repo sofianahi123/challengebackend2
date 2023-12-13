@@ -12,4 +12,5 @@ router.get ('/faqs',mainControllers.faqs);
 
 
 
+
 module.exports=router;
