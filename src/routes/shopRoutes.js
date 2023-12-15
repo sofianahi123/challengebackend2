@@ -10,4 +10,3 @@ router.post('/shop/cart' , shopControllers.checkout);
 
 
 module.exports=router;
-
