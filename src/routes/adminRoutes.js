@@ -4,13 +4,14 @@ const adminControllers = require ('../controllers/adminController');
 
 
 router.get ('/admin',adminControllers.admin);
-router.get ('/admin/create',adminControllers.createconsult);
-router.post ('/admin/create',adminControllers.create);
-router.get ('/admin/edit/:id',adminControllers.idconsult);
-router.put ('/admin/edit/:id',adminControllers.idput);
-router.delete ('/admin/delete/:id',adminControllers.iddelete);
+router.get ('/create',adminControllers.createconsult);
+router.post ('/create',adminControllers.create);
+router.get ('/edit/:id',adminControllers.idconsult);
+router.put ('/edit/:id',adminControllers.idput);
+router.delete ('/delete/:id',adminControllers.iddelete);
 
 
 
 module.exports=router;
 
+/*no pude ubicar bien la pagina de edit */

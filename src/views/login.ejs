@@ -10,31 +10,7 @@
     
     <body>
         <!--Inicio Header -->
-   <header>
-
-    <picture class="navbar__logo">
-        <a href="../index.html">
-            <img class="img-logo" src="../multimedia/branding/logo_light_horizontal.svg"
-                alt="Isologotipo de la Marca funkoshop">
-        </a>
-    </picture>
-    <button id="abrir" class="menu-abrir"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
-    <nav class="nav" id="nav">
-        <button id="cerrar" class="menu-cerrar"><iconify-icon icon="fa6-solid:bars"></iconify-icon></button>
-        <ul class="navbar__menu">
-            <li class="navbar__item">
-                <a class="navbar__link with-icon" href="../pages_tienda/shop.html">Ver Tienda</a>
-            </li>
-            <li class="navbar__item">
-                <a class="navbar__link" href="contacto.html">CONTACTO</a>
-            </li>
-            <li class="navbar__item">
-                <a class="navbar__link" href="login.html">LOGIN</a>
-            </li>
-        </ul>
-    </nav>
-
-</header>
+        <%-include ('partials/header2') %>
 <!--Fin Header-->  
 <!-- inicio login -->
         <main class="container">
@@ -64,28 +40,7 @@
         </main>
         <!-- fin login -->
         <!-- Footer -->
-        <footer class="footer">
-            <div class="navbar container">
-                <ul>
-                    <li class="navbar__item">
-                        <a class="navbar__link" href="../pages_tienda/shop.html">Shop</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a class="navbar__link" href="register.html">Registrarse</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a class="navbar__link" href="#">Ingresar</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a class="navbar__link" href="#">Contacto</a>
-                    </li>
-                </ul>
-                <picture>
-                    <img src="../multimedia/branding/isotype.svg" alt="Logo del sitio" />
-                </picture>
-            </div>
-            <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy ;</p>
-        </footer>
+        <%-include ('partials/footer2') %>
         <script src="../js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
     </body>

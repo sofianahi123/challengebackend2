@@ -19,8 +19,8 @@ app.use (express.static(__dirname +'/public_html'));
 app.use(methodOverride('_method'));
 
 app.use(require('./src/routes/tareasRouter'));
-app.use(expressLayouts);
-app.set('layout', 'layouts/public');
+/* app.use(expressLayouts);
+app.set('layout', 'layouts/public'); */
 
 
 
