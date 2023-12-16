@@ -1,8 +1,8 @@
 const adminControllers={
-    admin:(req,res) => res.send ('route for admin view'),
-   createconsult:(req,res) => res.send ('route for admin create consult'),
+    admin:(req,res) => res.render ('admin'),
+    createconsult:(req,res) => res.render ('create'),
     create:(req,res) => res.send ('route for admin create view'),
-    idconsult:(req,res) => res.send ('route for id'),
+    idconsult:(req,res) => res.render ('edit'),
     idput:(req,res) => res.send ('route for send id'),
     iddelete:(req,res) => res.send ('route for delete id'),
 }

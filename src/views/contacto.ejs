@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contacto</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+   <!--Inicio Header -->
+   <%-include ('partials/header2') %>
+<!--Fin Header-->
+<!-- inicio contacto -->
+    <main class="container">
+        <section class="form__contacto">
+            <form action="" method="post">
+                <h1 class="admin__title oneline title__contacto">CONTACTO</h1>
+
+                <div class="contacto__nombre">
+                    <label class="label__input"  for="nombre">Nombre :</label>  
+                    <input class="input__item input__contacto" type="text" placeholder="Nombre" required>
+                </div>
+
+                <div class="contacto__apellido">
+                    <label class="label__input" for="apellido">Apellido :</label>  
+                    <input class="input__item input__contacto" type="text" placeholder="Apellido" required>
+                </div>
+
+                <div class="contacto__email ">
+                    <label class="label__input label__email" for="email">E-mail :</label>  
+                    <input class="input__item input__contacto" type="email" placeholder="Email" required>
+                </div>
+
+                <div class="comentario">
+                    <textarea class="textarea__comentario"  name="textarea" id="" cols="30" rows="10" 
+                        placeholder="Comentario"></textarea>
+                </div>
+                <div class="contacto__btn">
+                    <button class="btn" id="btn"  type="submit">ENVIAR</button>
+                </div>
+            </form>
+            
+        </section>
+    </main>
+<!--fn contacto  -->
+<!-- footer -->
+<%-include ('partials/footer2') %>
+        <script src="../js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
