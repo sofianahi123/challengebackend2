@@ -4,6 +4,7 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const methodOverride = require("method-override");
 
+
 const mainRoutes= require ('./src/routes/mainRoutes');
 const shopRoutes=require ('./src/routes/shopRoutes');
 const adminRoutes=require ('./src/routes/adminRoutes');
