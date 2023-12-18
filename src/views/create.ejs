@@ -14,7 +14,7 @@
     <main class="container">
         <section class="form__create">
             
-            <form class="" action="" method="post">
+            <form class="" action="" method="post" enctype="multipart/form-data">
                 <h1 class="admin__title oneline">CREAR NUEVO ITEM</h1>
 
                 <div class="select__categoria">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="img__item oneline">
                     <label class="label__input" for="imagenes">Imágenes:</label>
-                    <input class="input__item__file" type="file">  
+                    <input class="input__item__file" type="file" name="imagenes">  
                 </div> 
                 <div class="btn__create oneline">
                     <button class="btn" type="submit">Agregar Producto</button>
