@@ -14,63 +14,63 @@
     <main class="container">
         <section class="form__create">
             
-            <form class="" action="" method="post" enctype="multipart/form-data">
+            <form action="/create" method="post" enctype="multipart/form-data">
                 <h1 class="admin__title oneline">CREAR NUEVO ITEM</h1>
 
                 <div class="select__categoria">
                     <label class="label__select" for="categoria">Categoría:</label>
-                    <select class="select__item" name="categoria" id="categoria">
+                    <select class="select__item" name="category_id" id="categoria">
                         <option id="option" class="select__option" value="">Seleccionar</option>
-                        <option id="option" class="select__option" value="">Star Wars</option>
-                        <option id="option" class="select__option" value="">Pokemon</option>
-                        <option id="option" class="select__option" value="">Harry Potter</option>
+                        <% categories.forEach(category => { %>
+                            <option id="option" class="select__option" value="<%= category.category_id %>"><%= category.category_name %></option>
+                        <% }); %>
                     </select>
                 </div>
                 <div class="select__licencia">
                     <label class="label__select" for="licencia">Licencia:</label>
-                    <select class="select__item" name="licencia" id="licencia">
+                    <select class="select__item" name="licence_id" id="licencia">
                         <option id="option" class="select__option" value="">Seleccionar</option>
-                        <option id="option" class="select__option" value="">Star Wars</option>
-                        <option id="option" class="select__option" value="">Pokemon</option>
-                        <option id="option" class="select__option" value="">Harry Potter</option>
+                        <% licenses.forEach(licence => { %>
+                            <option id="option" class="select__option" value="<%= licence.licence_id %>"><%= licence.licence_name %></option>
+                        <% }); %>
                     </select>
                 </div>
                 <div class="nom__producto oneline">
                     <label class="label__input" for="nombre del producto">Nombre del Producto:</label>
-                    <input class="input__item " type="text" placeholder="Kakashi Hatake Shippuden Saga">
+                    <input class="input__item " type="text" name="product_name" placeholder="Kakashi Hatake Shippuden Saga">
                 </div>
                 <div class="descripcion oneline">
-                    <textarea class="textarea__descripcion" name="" id="" cols="30" rows="10"
+                    <textarea class="textarea__descripcion" name="product_description" id="" cols="30" rows="10"
                         placeholder="Descripción del producto"></textarea>
                 </div>
 
                 <div class="sku__item">
                     <label class="label__input" for="sku">SKU:</label>
-                    <input class="input__item input__sku" type="text" placeholder="SSK111AB001">
+                    <input class="input__item input__sku" type="text" name="sku" placeholder="SSK111AB001">
                 </div>
                 <div class="precio__item">
                     <label class="label__input " for="precio">Precio:</label>
-                    <input class="input__item input__precio" type="text" placeholder="$0.000,00">
+                    <input class="input__item input__precio" type="text" name="price" placeholder="$0.000,00">
                 </div>
                 <div class="stock__item">
                     <label class="label__input input__stock" for="stock">Stock:</label>
-                    <input class="input__item" type="text" placeholder="0">
+                    <input class="input__item" type="text" name="stock" placeholder="0">
                 </div>
                 <div class="descuento__item">
                     <label class="label__input" for="descuento">Descuento:</label>
-                    <input class="input__item" type="text" placeholder="0%">
+                    <input class="input__item" type="text" name="discount" placeholder="0%">
                 </div>
                 <div class="cuota__item">
                     <label class="label__input" for="cuotas">Cuotas:</label>
-                    <select class="select__item__cuota" name="cuotas" id="cuotas">
-                        <option class="select__option" value="3 cuotas sin intereses">3 cuotas sin intereses</option>
-                        <option class="select__option" value="6 cuotas sin intereses">6 cuotas sin intereses</option>
-                        <option class="select__option" value="12 cuotas sin intereses">12 cuotas sin intereses</option>
+                    <select class="select__item__cuota" name="dues" id="cuotas">
+                        <option class="select__option" value="3">3 cuotas sin intereses</option>
+                        <option class="select__option" value="6">6 cuotas sin intereses</option>
+                        <option class="select__option" value="12">12 cuotas sin intereses</option>
                     </select>
                 </div>
                 <div class="img__item oneline">
                     <label class="label__input" for="imagenes">Imágenes:</label>
-                    <input class="input__item__file" type="file" name="imagenes">  
+                    <input class="input__item__file" type="file" name="images" multiple>  
                 </div> 
                 <div class="btn__create oneline">
                     <button class="btn" type="submit">Agregar Producto</button>
