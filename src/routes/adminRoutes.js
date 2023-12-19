@@ -15,9 +15,9 @@ const upload = multer({ storage: storage })
 
 router.get('/admin',adminControllers.admin);
 router.get('/create',adminControllers.createconsult);
-router.post('/create', upload.array('image',2), adminControllers.create);
+router.post('/create', upload.array('images',2), adminControllers.create);
 router.get('/edit/:id',adminControllers.idconsult);
-router.put('/edit/:id', upload.array('image',2), adminControllers.idput);
+router.put('/update/:id', upload.array('images',2), adminControllers.idput);
 router.delete('/delete/:id',adminControllers.iddelete);
 
 module.exports=router;

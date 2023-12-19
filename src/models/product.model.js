@@ -22,6 +22,28 @@ const Product = {
             conn.releaseConnection();
         }
     },
+    getCategories: async () => {
+        try {
+            const query = "SELECT * FROM category";
+            const [rows] = await conn.query(query);
+            return rows;
+        } catch (error) {
+            throw error;
+        } finally {
+            conn.releaseConnection();
+        }
+    },
+    getLicenses: async () => {
+        try {
+            const query = "SELECT * FROM licence";
+            const [rows] = await conn.query(query);
+            return rows;
+        } catch (error) {
+            throw error;
+        } finally {
+            conn.releaseConnection();
+        }
+    },
     create: async (product) => {
         try {
             return conn.query('INSERT INTO product SET ?', [product]);
@@ -33,7 +55,7 @@ const Product = {
     },
     update: async (id, product) => {
         try {
-            return conn.query('UPDATE product SET ? WHERE id = ?', [product, id]);
+            return conn.query('UPDATE product SET ? WHERE product_id = ?', [product, id]);
         } catch (error) {
             throw error;
         } finally {

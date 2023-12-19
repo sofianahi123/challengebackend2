@@ -16,14 +16,14 @@ app.set('views',  './src/views');
 app.use (express.static(__dirname +'/public_html'));
 app.use(methodOverride('_method'));
 
+// Middleware para parsear el cuerpo de las peticiones
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(require('./src/routes/tareasRouter'));
 
 /* app.use(expressLayouts);
 app.set('layout', 'layouts/public'); */
-
-// Middleware para parsear el cuerpo de las peticiones
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use(authRoutes);
 app.use(mainRoutes);

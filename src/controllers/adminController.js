@@ -12,7 +12,11 @@ const adminControllers = {
       res.status(500).json({ error: 'Error interno del servidor.' });
     }
   },
-  createconsult: (req, res) => res.render('create'),
+  createconsult: async (req, res) => {
+    const categories = await Product.getCategories();
+    const licenses = await Product.getLicenses();
+    res.render('create',{'categories': categories,'licenses': licenses})
+  },
   create: async (req, res) => {
     // Validación de campos utilizando express-validator
     const errors = validationResult(req);
@@ -20,8 +24,8 @@ const adminControllers = {
       return res.status(400).json({ errors: errors.array() });
     }
     const { 
-      name,
-      description, 
+      product_name,
+      product_description, 
       price,
       stock,
       discount,
@@ -32,8 +36,8 @@ const adminControllers = {
     const image_front = req.files[0] ? req.files[0].filename : null;
     const image_back = req.files[1] ? req.files[1].filename : null;
     const newProduct = 
-    { name, 
-      description, 
+    { product_name, 
+      product_description, 
       price,
       stock,
       discount,
@@ -45,9 +49,10 @@ const adminControllers = {
       category_id };
     try {
       await Product.create(newProduct);
-      res.json({ message: 'Producto agregado exitosamente' });
+      const products = await Product.getAll();
+      res.render('admin', {'products': products});
     } catch (error) {
-      if (err instanceof multer.MulterError) {
+      if (error instanceof multer.MulterError) {
         console.error('Error de Multer:', err.message);
         return res.status(500).send('Error al subir el archivo: ' + err.message);
       }
@@ -66,7 +71,9 @@ const adminControllers = {
     const id = req.params.id;
     try {
       const product = await Product.getById(id);
-      res.render('edit', {'product': product[0]})
+      const categories = await Product.getCategories();
+      const licenses = await Product.getLicenses();
+      res.render('edit', { 'product': product[0],'categories': categories,'licenses': licenses })
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Error interno del servidor.' });
@@ -79,15 +86,37 @@ const adminControllers = {
       return res.status(400).json({ errors: errors.array() });
     }
     const id = req.params.id;
-    const { name, price } = req.body;  // cambiar campos
-    const image = req.file ? req.file.filename : null;
-    const updatedProduct = { name, price, image };
+    const { 
+      product_name,
+      product_description, 
+      price,
+      stock,
+      discount,
+      sku,
+      dues,
+      licence_id,
+      category_id } = req.body;
+      const image_front = req.files[0] ? req.files[0].filename : null;
+      const image_back = req.files[1] ? req.files[1].filename : null;
+      const updatedProduct = 
+      { product_name, 
+        product_description, 
+        price,
+        stock,
+        discount,
+        sku,
+        dues,
+        image_front,
+        image_back,
+        licence_id,
+        category_id };
     try {
       const result = await Product.update(id, updatedProduct);
       if (result[0].affectedRows === 0) {
         return res.status(404).json({ error: 'No se encontró el producto.' });
       }
-      res.json({ message: 'Producto modificado exitosamente.' });
+      const products = await Product.getAll();
+      res.render('admin', {'products': products});
     } catch (error) {
       console.error('Error general: ', error);
       res.status(500).json({ error: 'Error interno del servidor.' });
@@ -100,7 +129,8 @@ const adminControllers = {
       if (result[0].affectedRows === 0) {
         return res.status(404).json({ error: 'No se encontró el producto.' });
       }
-      res.json({ message: 'Producto eliminado exitosamente.' });
+      const products = await Product.getAll();
+      res.render('admin', {'products': products});
     } catch (error) {
       console.error('Error general: ', error);
       res.status(500).json({ error: 'Error interno del servidor.' });

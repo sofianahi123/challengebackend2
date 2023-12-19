@@ -14,68 +14,76 @@
    <!--Fin Header-->
     <main class="container">
         <section class="form__edit">
-            <form action="" method="post">
+            <form action="/update/<%= product.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <h1 class="edit__title oneline">EDITAR ITEM</h1>
 
                 <div class="select__categoria select__cat-edit">
                     <label class="label__select label__edit" for="categoria">Categoria:</label>
-                    <select class="select__item select__edit" name="categoria" id="categoria">
-                        <option class="select__option" value="">Figuras</option>
-                        <option class="select__option" value="">Star Wars</option>
-                        <option class="select__option" value="">Pokemon</option>
-                        <option class="select__option" value="">Harry Potter</option>
+                    <select class="select__item select__edit" name="category_id" id="categoria">
+                        <option class="select__option" value="">Seleccionar</option>
+                        <% categories.forEach(category => { %>
+                            <option id="option" class="select__option" value="<%= category.category_id %>"
+                                <% if (product.category_id == category.category_id) { %>
+                                    selected="selected"
+                                <% } %>
+                            ><%= category.category_name %></option>
+                        <% }); %>
                     </select>
                 </div>
 
                 <div class="select__licencia select__lic-edit">
                     <label class="label__select label__edit" for="licencia">Licencia:</label>
-                    <select class="select__item select__edit" name="licencia" id="licencia">
-                        <option class="select__option" value="">Naruto Shipudden</option>
-                        <option class="select__option" value="">Star Wars</option>
-                        <option class="select__option" value="">Pokemon</option>
-                        <option class="select__option" value="">Harry Potter</option>
+                    <select class="select__item select__edit" name="licence_id" id="licencia">
+                        <option id="option" class="select__option" value="">Seleccionar</option>
+                        <% licenses.forEach(licence => { %>
+                            <option id="option" class="select__option" value="<%= licence.licence_id %>"
+                                <% if (product.licence_id == licence.licence_id) { %>
+                                    selected="selected"
+                                <% } %>
+                            ><%= licence.licence_name %></option>
+                        <% }); %>
                     </select>
                 </div>
                 <div class="nom__producto nom__producto-edit oneline">
-                    <label class="label__input" for="nombre del producto">Nombre del Producto:</label>
-                    <input class="input__item" type="text" value="<%= product.product_name %>">
+                    <label class="label__input" for="product_name">Nombre del Producto:</label>
+                    <input class="input__item" type="text" name="product_name" value="<%= product.product_name %>">
                 </div>
                 <div class="descripcion oneline">
-                    <textarea class="textarea__descripcion" name="" id="" cols="30" rows="10"><%= product.product_description %></textarea>
+                    <textarea class="textarea__descripcion" name="product_description" id="" cols="30" rows="10"><%= product.product_description %></textarea>
                 </div>
 
                 <div class="sku__item sku__item-edit">
                     <label class="label__input" for="sku">SKU:</label>
-                    <input class="input__item input__sku" type="text" value="<%= product.sku %>">
+                    <input class="input__item input__sku" type="text" name="sku" value="<%= product.sku %>">
                 </div>
 
                 <div class="precio__item precio__item-edit">
                     <label class="label__input" for="precio">Precio:</label>
-                    <input class="input__item input__precio" type="text" value="<%= product.price %>">
+                    <input class="input__item input__precio" type="text" name="price" value="<%= product.price %>">
                 </div>
 
                 <div class="stock__item stock__item-edit">
                     <label class="label__input" for="stock">Stock:</label>
-                    <input class="input__item input__stock" type="text" value="<%= product.stock %>">
+                    <input class="input__item input__stock" type="text" name="stock" value="<%= product.stock %>">
                 </div>
 
                 <div class="descuento__item desc__item-edit">
                     <label class="label__input" for="descuento">Descuento:</label>
-                    <input class="input__item" type="text" value="<%= product.discount %>">
+                    <input class="input__item" type="text" name="discount" value="<%= product.discount %>">
                 </div>
 
                 <div class="cuota__item cuota__item-edit">
                     <label class="label__input" for="cuotas">Cuotas:</label>
-                    <select class="select__item__cuota" name="cuotas" id="cuotas">
+                    <select class="select__item__cuota" name="dues" id="cuotas">
 
-                        <option class="select__option" value="6 cuotas sin intereses">6 cuotas sin intereses</option>
-                        <option class="select__option" value="12 cuotas sin intereses">12 cuotas sin intereses</option>
+                        <option class="select__option" value="6">6 cuotas sin intereses</option>
+                        <option class="select__option" value="12">12 cuotas sin intereses</option>
                     </select>
                 </div>
 
                 <div class="img__item oneline">
                     <label class="label__input" for="imagenes">Imágenes:</label>
-                    <input class="input__item__file" type="file">
+                    <input class="input__item__file" type="file" name="images" multiple>
                 </div>
                 <div class="imagenes__edit">
                     <figure class="figure__edit">
