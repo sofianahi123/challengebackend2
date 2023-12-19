@@ -24,7 +24,7 @@
                     <h1 class="admin__title">LISTADO DE PRODUCTOS</h1>
                     <div class="admin__add">
                         <p class="admin__agregar">AGREGAR</p>
-                        <img src="../multimedia/icons/ico-agregar.png" alt="Icono agregar">
+                        <a href="/create"><img src="../multimedia/icons/ico-agregar.png" alt="Icono agregar"></a>
                     </div>
                 </div>
                 <table class="admin__table">
@@ -38,13 +38,25 @@
                     </thead>
     
                     <tbody>
+                        <% products.forEach(product => { %>
+                            <tr class="admin__table-tr">
+                                <td class="admin__table-td"><%= product.product_id %></td>
+                                <td class="admin__table-td"><%= product.sku %></td>
+                                <td class="admin__table-td"><%= product.product_name %></td>
+                                <td class="admin__table-td"><%= product.licence_name %></td>
+                                <td class="admin__table-td"><a href="/edit/<%= product.product_id %>"><img src="../multimedia/icons/edit_pencil.svg" alt="editar"></a></td>
+                                <td class="admin__table-td"><img src="../multimedia/icons/delete_trash.svg" alt="delete_trash" onclick="deleteById('<%= product.product_id %>')"></td>
+                            </tr>
+                        <% }); %>
+                        
+                        <!--
                         <tr class="admin__table-tr">
                             <td class="admin__table-td">1</td>
                             <td class="admin__table-td">STW001001</td>
                             <td class="admin__table-td">Baby Yoda Blueball</td>
                             <td class="admin__table-td">STARS WARS</td>
-                            <td class="admin__table-td"><img src="../multimedia/icons/edit_pencil.svg" alt="editar"></td>
-                            <td class="admin__table-td"><img src="../multimedia/icons/delete_trash.svg" alt="delete_trash"></td>
+                            <td class="admin__table-td"><a href="/1"><img src="../multimedia/icons/edit_pencil.svg" alt="editar"></a></td>
+                            <td class="admin__table-td"><a href="/delete/1"><img src="../multimedia/icons/delete_trash.svg" alt="delete_trash"></a></td>
                         </tr>
                         <tr class="admin__table-tr">
                             <td class="admin__table-td">2</td>
@@ -142,6 +154,7 @@
                             <td class="admin__table-td"><img src="../multimedia/icons/edit_pencil.svg" alt="editar"></td>
                             <td class="admin__table-td"><img src="../multimedia/icons/delete_trash.svg" alt="delete_trash"></td>
                         </tr>
+                        -->
                     </tbody>
                 </table>
             </section>
@@ -150,5 +163,13 @@
         <%-include ('partials/footer2') %>
         <script src="../js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+        <script type="text/javascript">
+            function deleteById(id) {
+                const url = location.origin + '/delete/' + id;
+                fetch(url, { method: 'DELETE' });
+                location.reload();
+            }
+        </script>
     </body>
 </html>

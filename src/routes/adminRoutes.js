@@ -1,32 +1,23 @@
 const express= require('express');
 const router =express.Router();   
 const adminControllers = require ('../controllers/adminController');
+const multer = require('multer');
+const path = require('path');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './src/uploads/'); 
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage })
 
-
-router.get ('/admin',adminControllers.admin);
-router.get ('/create',adminControllers.createconsult);
-router.post ('/create',adminControllers.create);
-router.get ('/:id',adminControllers.idconsult);
-router.put ('/edit/:id',adminControllers.idput);
-router.delete ('/delete/:id',adminControllers.iddelete);
-
-
+router.get('/admin',adminControllers.admin);
+router.get('/create',adminControllers.createconsult);
+router.post('/create', upload.array('image',2), adminControllers.create);
+router.get('/edit/:id',adminControllers.idconsult);
+router.put('/edit/:id', upload.array('image',2), adminControllers.idput);
+router.delete('/delete/:id',adminControllers.iddelete);
 
 module.exports=router;
-
-/*
-
-const multer=require ("multer");
-const upload = multer ({storage :multer.memoryStorage()});
-
-const express = require("express");
-const router = express.Router();
-
-const controller = require("../controllers/tareasController");
-
-router.get("/", controller.index);
-router.post("/", controller.store);
-router.put("/:id", controller.update);
-router.delete("/:id", controller.destroy);
-
-module.exports = router; */

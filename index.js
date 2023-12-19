@@ -21,6 +21,10 @@ app.use(require('./src/routes/tareasRouter'));
 /* app.use(expressLayouts);
 app.set('layout', 'layouts/public'); */
 
+// Middleware para parsear el cuerpo de las peticiones
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(authRoutes);
 app.use(mainRoutes);
 app.use(shopRoutes);
