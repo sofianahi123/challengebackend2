@@ -34,4 +34,7 @@ app.use(shopRoutes);
 app.use(adminRoutes);
 
 
+
 app.listen (3000, () => console.log ("servidor corriendo en http://localhost:3000"));  
+
+module.exports=app
