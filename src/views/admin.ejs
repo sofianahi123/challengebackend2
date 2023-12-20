@@ -166,9 +166,12 @@
 
         <script type="text/javascript">
             function deleteById(id) {
-                const url = location.origin + '/delete/' + id;
-                fetch(url, { method: 'DELETE' });
-                location.reload();
+                if (confirm('¿Estás seguro de que quieres eliminar este producto? NO HAY VUELTA ATRAS')) {
+                    const url = location.origin + '/delete/' + id;
+                    fetch(url, { method: 'DELETE' }).then( () => {
+                        location.reload();
+                    });
+                }
             }
         </script>
     </body>

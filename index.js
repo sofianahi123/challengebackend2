@@ -20,6 +20,9 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Para incluir archivos estáticos que no están en public
+app.use(express.static('./src/uploads'));
+
 app.use(require('./src/routes/tareasRouter'));
 
 /* app.use(expressLayouts);

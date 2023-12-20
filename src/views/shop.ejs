@@ -67,14 +67,29 @@
 <!--inicio main-->
 <main class="main-containershop">
 <section class= "main__cards">
-   <%-include ('partials/cards') %>
-   <%-include ('partials/cards') %>
-   <%-include ('partials/cards') %>
-   </section>
-  <section class="slider-pagination glide" >
+    <% products.forEach(product => { %>
+
+        <article class="card-1" >
+            <picture class="card-item__img">
+               <span class="card-item__tag">NUEVO</span>
+               <img class="card-item__img--front img-responsive" src="<%= product.image_back %>"
+                   alt="<%= product.product_description %>">
+               <img class="card-item__img--back img-responsive  " src="<%= product.image_front %>"
+                   alt="<%= product.product_description %> Box">
+           </picture>
+        <h6 class="card-item__licence"><%= product.licence_name %></h6>
+        <a href="/item "><h3 class="card-item__name"><%= product.product_name %></h3></a>
+        <p class="card-item__price" >$ <%= product.price %></p>
+        <p class="card-item__cuotas" ><%= product.dues %> CUOTAS SIN INTERES</p>
+        </article>
+
+    <% }); %>
+</section>
+
+<section class="slider-pagination glide" >
     
-        <div class="glide__track-pagination" data-glide-el="track">
- <ul class="pagination__items glide__slides"  >
+    <div class="glide__track-pagination" data-glide-el="track">
+        <ul class="pagination__items glide__slides"  >
             <li class="pagination__item glide__slide"> 1
             </li>
             <li class="pagination__item glide__slide" >2
