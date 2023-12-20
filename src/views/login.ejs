@@ -16,14 +16,14 @@
         <main class="container">
             <section class="form__login">
                 
-                <form action="" method="post">
+                <form action="" method="post" id="login_form">
                     <h1 class="login__title">INGRESAR A MI CUENTA</h1>
     
                         <label class="label__input-login" for="email">Email:</label>
-                        <input class="input__item input__login" type="email" name="email" id="" placeholder="cuenta@correo.com" required>
+                        <input class="input__item input__login" type="email" name="email" id="email" placeholder="cuenta@correo.com" required>
     
                         <label class="label__input-login" for="password">Contraseña:</label>
-                        <input class="input__item input__login " type="password" name="password" id="" placeholder="***********" required>
+                        <input class="input__item input__login " type="password" name="password" id="password" placeholder="***********" required>
     
                         <div class="login__btn">
                             <button class="btn">Ingresar</button>
@@ -43,5 +43,44 @@
         <%-include ('partials/footer2') %>
         <script src="../js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
+        <script type="text/javascript">
+            
+
+            function validateLogin() 
+            {
+                if (password.value.length < 3) {
+                    alert("La contraseña debe tener al menos tres caracteres!!!");
+                    return false;
+                }
+                return true;
+            }
+
+            let form = document.getElementById("login_form");
+
+            form.addEventListener("submit", function(e) 
+            {
+                e.preventDefault();
+
+                let email = document.getElementById("email");
+                let password = document.getElementById("password");
+
+                if (validateLogin(email, password))
+                {
+                    let datos = {
+                        'email': email.value,
+                        'password': password.value
+                    };
+
+                    fetch( location.origin + '/login/', {
+                        method: "POST",
+                        body: JSON.stringify(datos),
+                        headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                    .then(response => response.json()) 
+                    .then(json => alert(json.message));
+                }
+            });
+        </script>
     </body>
 </html>

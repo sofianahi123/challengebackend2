@@ -5,10 +5,12 @@ const multer = require('multer');
 const path = require('path');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './src/uploads/'); 
+      cb(null,"./src/uploads/");
     },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    filename: (req, file, cb) => {
+      let extension = path.extname(file.originalname);
+      let basename = path.basename(file.originalname,extension);
+      cb(null,basename+"-"+Date.now()+extension);
     }
 });
 const upload = multer({ storage: storage })
